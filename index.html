@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icosiom</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: black;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        background-color: rgb(255, 255, 255);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(0, 0, 0);
+        font-size: 14px;
+        padding: 15px;
+        line-height: 0.3;
+        margin: 0;
+        position: fixed;
+        height: 65px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        padding-left: 25px;
+        line-height: 0.9;
+        gap: 12px;
+    }
+
+    .boc {
+        background-color: rgb(19, 19, 19);
+        width: 950px;
+        height: auto;
+        min-height: 750px;
+        padding: 20px;
+        border-radius: 10px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        margin-top: 80px;
+    }
+
+    h3 {
+        padding: 10px;
+        color: rgb(253, 253, 253);
+    }
+
+    img {
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
+    }
+
+    /* From Uiverse.io by mrhyddenn */
+    button {
+        position: relative;
+        padding: 10px 20px;
+        border-radius: 7px;
+        border: 1px solid rgb(255, 255, 255);
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background: transparent;
+        color: #fff;
+        overflow: hidden;
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: rgb(209, 95, 1);
+        box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+
+    button:hover::before {
+        -webkit-animation: sh02 0.5s 0s linear;
+        -moz-animation: sh02 0.5s 0s linear;
+        animation: sh02 0.5s 0s linear;
+    }
+
+    button::before {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 86%;
+        position: absolute;
+        top: 7%;
+        left: 0%;
+        opacity: 0;
+        background: #fff;
+        box-shadow: 0 0 50px 30px #fff;
+        -webkit-transform: skewX(-20deg);
+        -moz-transform: skewX(-20deg);
+        -ms-transform: skewX(-20deg);
+        -o-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+    }
+
+    @keyframes sh02 {
+        from {
+            opacity: 0;
+            left: 0%;
+        }
+        50% {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+            left: 100%;
+        }
+    }
+
+    button:active {
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: box-shadow 0.2s ease-in;
+        -moz-transition: box-shadow 0.2s ease-in;
+        transition: box-shadow 0.2s ease-in;
+    }
+
+   
+   
+
+    @media (max-width: 480px) {
+        .video-wrapper video {
+            max-height: 200px;
+        }
+    }
+
+    h1 {
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        height: 51px;
+        padding: 10px;
+    }
+
+    /* From Uiverse.io by Kemboi-Dun */
+    .container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .terminal_toolbar {
+        display: flex;
+        height: 30px;
+        align-items: center;
+        padding: 0 8px;
+        box-sizing: border-box;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: #212121;
+        justify-content: space-between;
+    }
+
+    .butt {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin-right: 5px;
+        font-size: 8px;
+        height: 12px;
+        width: 12px;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 100%;
+        background: linear-gradient(#7d7871 0%, #595953 100%);
+        text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
+    }
+
+    .btn-color {
+        background: #ee411a;
+    }
+
+    .btn:hover {
+        cursor: pointer;
+    }
+
+    .btn:focus {
+        outline: none;
+    }
+
+    .butt--exit {
+        background: linear-gradient(#f37458 0%, #de4c12 100%);
+    }
+
+    .add_tab {
+        border: 1px solid #fff;
+        color: #fff;
+        padding: 0 6px;
+        border-radius: 4px 4px 0 0;
+        border-bottom: none;
+        cursor: pointer;
+    }
+
+    .user {
+        color: #d5d0ce;
+        margin-left: 6px;
+        font-size: 14px;
+        line-height: 15px;
+    }
+
+    .terminal_body {
+        background: rgba(0, 0, 0, 0.6);
+        height: calc(100% - 10px);
+        width: 900px;
+        padding-top: 2px;
+        margin-top: -1px;
+        font-size: 12px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .terminal_promt {
+        display: flex;
+    }
+
+    .terminal_promt span {
+        margin-left: 4px;
+    }
+
+    .terminal_user {
+        color: #1eff8e;
+    }
+
+    .terminal_location {
+        color: #030303;
+    }
+
+    .terminal_bling {
+        color: #dddddd;
+    }
+
+    .terminal_cursor {
+        display: block;
+        height: 14px;
+        width: 5px;
+        margin-left: 10px;
+        animation: curbl 1200ms linear infinite;
+    }
+
+    @keyframes curbl {
+        0% {
+            background: #ffffff;
+        }
+        49% {
+            background: #ffffff;
+        }
+        60% {
+            background: transparent;
+        }
+        99% {
+            background: transparent;
+        }
+        100% {
+            background: #ffffff;
+        }
+    }
+
+    .pricing-container {
+        display: none;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin: 15px 0 20px;
+        width: 100%;
+    }
+
+    .pricing-container.show {
+        display: flex;
+    }
+
+    /* From Uiverse.io by Yaya12085 */
+    .plan {
+        border-radius: 16px;
+        box-shadow: 0 30px 30px -25px rgba(0, 0, 0, 0.205);
+        padding: 10px;
+        background-color: #fff;
+        color: #333638;
+        max-width: 300px;
+        flex: 1;
+        min-width: 240px;
+    }
+
+    .plan strong {
+        font-weight: 600;
+        color: #474747;
+    }
+
+    .plan .inner {
+        align-items: center;
+        padding: 20px;
+        padding-top: 40px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        position: relative;
+    }
+
+    .plan .pricing {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #000000;
+        border-radius: 99em 0 0 99em;
+        display: flex;
+        align-items: center;
+        padding: 0.625em 0.75em;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #ffffff;
+    }
+
+    .plan .pricing small {
+        color: #707a91;
+        font-size: 0.75em;
+        margin-left: 0.25em;
+    }
+
+    .plan .title {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: #425675;
+    }
+
+    .plan .title+* {
+        margin-top: 0.75rem;
+    }
+
+    .plan .info+* {
+        margin-top: 1rem;
+    }
+
+    .plan .features {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .plan .features li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 4px 0;
+    }
+
+    .plan .features li+* {
+        margin-top: 0.75rem;
+    }
+
+    .plan .features .icon {
+        background-color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #000000;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+    }
+
+    .plan .features .icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .plan .features+* {
+        margin-top: 1.25rem;
+    }
+
+    .plan .action {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .plan .button {
+        background-color: #000000;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 1.125rem;
+        text-align: center;
+        border: 0;
+        outline: 0;
+        width: 100%;
+        padding: 0.625em 0.75em;
+        text-decoration: none;
+    }
+
+    .plan .button:hover,
+    .plan .button:focus {
+        background-color: #2e2e2e;
+    }
+</style>
+
+<body>
+
+    <div class="box">
+        <img src="par.png">
+        <h1>IcosioM Tools</h1>
+    </div>
+
+    <div class="boc">
+
+        <h1>BetaTime</h1>
+        <br>
+        <h3>BetaTime automates video posting on TikTok, requiring no manual intervention after the initial</h3>
+        <h3>can schedule posting times for each day of the week.</h3>
+        <h3>It supports the automatic posting of up to three videos per day.</h3>
+        <br>
+        <h3>The program retrieves videos directly from your selected folder, automatically adds hashtags, </h3>
+        <h3>and publishes them at the scheduled time—all without the need for manual posting.</h3>
+        <br>
+        <h3>BetaTime utilizes smart timing to help increase reach and views </h3>
+        <h3>saving you time and effort in content management</h3>
+        <h3>while maintaining your account's activity and continuous growth.</h3>
+        <br>
+     
+        <a href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20product" target="_blank" style="text-decoration: none; align-self: center;">
+            <button onclick="togglePricing(event)">request</button>
+        </a>
+         <br>
+        <div class="pricing-container" id="pricingContainer">
+
+            
+            <div class="plan">
+                <div class="inner">
+                    <span class="pricing">
+                        <span>
+                            3000DA <small>/ m</small>
+                        </span>
+                    </span>
+                    <br>
+                    <p class="title">The second option</p>
+                    <p class="info">The BetaTime program automatically publishes content according to your pre-set times; it allows you to create a weekly schedule, add hashtags, and automatically retrieve videos from a folder to publish them without any intervention on your part.</p>
+                
+                    <div class="action">
+                        <a class="button" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20Professional%20plan">
+                            Choose plan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="plan">
+                <div class="inner">
+                    <span class="pricing">
+                        <span>
+                            2500DA <small>/ m</small>
+                        </span>
+                    </span>
+                    <br>
+                    <p class="title">The first option</p>
+                    <p class="info">A manual publishing tool that posts videos instantly with the click of a single button, eliminating the need to set specific times or create a publishing schedule. It is ideal for those who prefer to control exactly when their content is published.</p>
+                    <ul class="features">
+                      
+                           
+                       
+                    </ul>
+                    <div class="action">
+                        <a class="button" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20Enterprise%20plan">
+                            Choose plan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+       
+        <div class="container">
+            <div class="terminal_toolbar">
+                <div class="butt">
+                    <button class="btn btn-color"></button>
+                    <button class="btn"></button>
+                    <button class="btn"></button>
+                </div>
+                <p class="user">BetaTime</p>
+                <div class="add_tab">
+                    +
+                </div>
+            </div>
+            <div class="terminal_body">
+                <div class="terminal_promt">
+                    <span class="terminal_user">TikTok Upload VIDEOE</span>
+                    <span class="terminal_location"></span>
+                    <span class="terminal_bling"></span>
+                    <span class="terminal_cursor"></span>
+                </div>
+            </div>
+            
+        </div>
+        <br>
+        <br>
+        <button onclick="togglePricing1(event)">video help</button>
+        <br>
+        <div class="pricing-container" id="pricingContainer01">
+
+            <a href="https://streamable.com/sx1szg"><button>Video1</button></a>
+            <a href="https://streamable.com/m4su8j"><button>Video2</button></a>
+
+        </div>
+        
+
+    <script>
+        function togglePricing(event) {
+            event.preventDefault();
+            var container = document.getElementById('pricingContainer');
+            container.classList.toggle('show');
+        }
+        function togglePricing1(event) {
+            event.preventDefault();
+            var container = document.getElementById('pricingContainer01');
+            container.classList.toggle('show');
+        }
+    </script>
+
+</body>
+</html>
