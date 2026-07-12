@@ -143,7 +143,6 @@
     }
 
    
-   
 
     @media (max-width: 480px) {
         .video-wrapper video {
@@ -295,6 +294,7 @@
         margin: 15px 0 20px;
         width: 100%;
     }
+   
 
     .pricing-container.show {
         display: flex;
@@ -422,6 +422,88 @@
     .plan .button:focus {
         background-color: #2e2e2e;
     }
+
+    /* 👇 التعديلات الجديدة فقط 👇 */
+    /* تكبير الصورة داخل pricing-container */
+    #pricingContainer01 img {
+        width: 80px !important;
+        height: 80px !important;
+        object-fit: contain;
+        display: block;
+        margin: 10px auto;
+    }
+
+    /* تنظيم الكتابة داخل pricing-container */
+    #pricingContainer01 {
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        padding: 20px;
+        background-color: rgb(30, 30, 30);
+        border-radius: 12px;
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    #pricingContainer01.show {
+        display: flex;
+    }
+
+    #pricingContainer01 h3 {
+        color: rgb(220, 220, 220);
+        font-size: 14px;
+        font-weight: normal;
+        padding: 4px 0;
+        margin: 0;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+    #pricingContainer01 .msg-item {
+        color: #d0d0d0;
+        font-size: 13px;
+        line-height: 1.8;
+        padding: 6px 12px;
+        background-color: rgb(40, 40, 40);
+        border-radius: 6px;
+        border-left: 3px solid #f09b22;
+        margin: 2px 0;
+    }
+
+    #pricingContainer01 .msg-item strong {
+        color: #f0b35a;
+    }
+
+    .folder-highlight {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        background: rgb(35, 35, 35);
+        padding: 15px;
+        border-radius: 10px;
+        margin: 10px 0;
+        border: 1px solid #444;
+    }
+
+    .folder-highlight span {
+        color: #eee;
+        font-size: 15px;
+    }
+
+    .folder-highlight span strong {
+        color: #f0b35a;
+    }
+    #pricingContainer01 img {
+    width: 250px !important;    /* ← غير هذا الرقم لتكبير أو تصغير الصورة */
+    height: 200px !important;   /* ← غير هذا الرقم لتكبير أو تصغير الصورة */
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+}
+  
+
+
 </style>
 
 <body>
@@ -526,12 +608,40 @@
         </div>
         <br>
         <br>
-        <button onclick="togglePricing1(event)">video help</button>
+        <button onclick="togglePricing1(event)">BetaTime help</button>
         <br>
+        
+        <!-- ✅ pricing-container مع الصورة المكبرة والكتابة المنظمة ✅ -->
         <div class="pricing-container" id="pricingContainer01">
+            
+            <h3>If you encounter any issues while using BetaTime, or if the software does not perform as expected,</h3>
+            <h3>please run the `Program.exe` file. This tool is designed to diagnose minor issues, and the reports generated during execution can help identify the cause of the problem.</h3>
+            <h3>Before contacting support, please run `Program.exe` and review the displayed information; this may allow you to resolve the issue easily.</h3>
+            
+            <!-- الصورة مكبرة -->
+            <div class="folder-highlight">
+                <img src="folder.png" alt="folder">
+                <span><strong>folder.png</strong> — اختر مجلد الفيديوهات</span>
+            </div>
 
-            <a href="https://streamable.com/sx1szg"><button>Video1</button></a>
-            <a href="https://streamable.com/m4su8j"><button>Video2</button></a>
+            <h3 style="color: #f0b35a; font-size: 16px; margin-top: 10px;">📋 معاني رسائل BetaTime</h3>
+
+            <div class="msg-item"><strong>Connecting to TikTok...</strong> — يقوم البرنامج بالاتصال بموقع تيك توك.</div>
+            <div class="msg-item"><strong>Verification code required.</strong> — تم إرسال رمز تحقق إلى بريدك الإلكتروني أو هاتفك. أدخل الرمز ثم اضغط Enter لمتابعة التشغيل.</div>
+            <div class="msg-item"><strong>Restarting BetaTime...</strong> — يقوم البرنامج بإعادة التشغيل لتطبيق الإعدادات أو بعد إكمال التحقق.</div>
+            <div class="msg-item"><strong>Loading videos...</strong> — جارٍ قراءة الفيديوهات من المجلد الذي اخترته.</div>
+            <div class="msg-item"><strong>Checking uploaded videos...</strong> — يقوم البرنامج بالتحقق من الفيديوهات التي تم نشرها سابقًا حتى لا يعيد نشرها.</div>
+            <div class="msg-item"><strong>This video has already been uploaded.</strong> — هذا الفيديو منشور مسبقًا، وسيتم الانتقال إلى الفيديو التالي.</div>
+            <div class="msg-item"><strong>Checking video size...</strong> — يقوم البرنامج بفحص حجم الفيديو قبل رفعه.</div>
+            <div class="msg-item"><strong>The video size is too large.</strong> — حجم الفيديو أكبر من الحد المسموح به. قلل حجمه إلى أقل من 2 MB ثم أعد المحاولة.</div>
+            <div class="msg-item"><strong>Uploading video...</strong> — جارٍ رفع الفيديو إلى تيك توك.</div>
+            <div class="msg-item"><strong>Video uploaded successfully.</strong> — تم رفع الفيديو بنجاح.</div>
+            <div class="msg-item"><strong>Adding hashtags...</strong> — جارٍ إضافة الهاشتاغات إلى الفيديو.</div>
+            <div class="msg-item"><strong>Publishing video...</strong> — جارٍ نشر الفيديو على تيك توك.</div>
+            <div class="msg-item"><strong>Video published successfully.</strong> — تم نشر الفيديو بنجاح.</div>
+            <div class="msg-item"><strong>All tasks completed successfully.</strong> — تم الانتهاء من جميع العمليات بنجاح.</div>
+            <div class="msg-item"><strong>An unexpected error occurred.</strong> — حدث خطأ غير متوقع. أغلق البرنامج ثم أعد تشغيله، وإذا استمر الخطأ فتأكد من اتصال الإنترنت وصحة بيانات الحساب.</div>
+            <div class="msg-item"><strong>[STOP]</strong> — توقف البرنامج بسبب خطأ. اقرأ الرسالة التي تظهر أسفلها لمعرفة سبب المشكلة واتبع التعليمات المناسبة.</div>
 
         </div>
         
