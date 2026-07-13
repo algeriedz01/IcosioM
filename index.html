@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
@@ -20,6 +20,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0 10px;
     }
 
     .box {
@@ -46,7 +47,8 @@
 
     .boc {
         background-color: rgb(19, 19, 19);
-        width: 950px;
+        width: 100%;
+        max-width: 950px;
         height: auto;
         min-height: 750px;
         padding: 20px;
@@ -60,6 +62,7 @@
     h3 {
         padding: 10px;
         color: rgb(253, 253, 253);
+        font-size: 14px;
     }
 
     img {
@@ -151,11 +154,13 @@
         border-radius: 10px;
         height: 51px;
         padding: 10px;
+        font-size: 18px;
     }
 
     .container {
-        width: 250px;
-        height: 250px;
+        width: 100%;
+        max-width: 250px;
+        height: auto;
     }
 
     .terminal_toolbar {
@@ -226,9 +231,10 @@
 
     .terminal_body {
         background: rgba(0, 0, 0, 0.6);
-        height: calc(100% - 10px);
-        width: 900px;
-        padding-top: 2px;
+        height: auto;
+        min-height: 40px;
+        width: 100%;
+        padding: 10px 12px;
         margin-top: -1px;
         font-size: 12px;
         border-bottom-left-radius: 5px;
@@ -237,6 +243,9 @@
 
     .terminal_promt {
         display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 4px;
     }
 
     .terminal_promt span {
@@ -449,9 +458,13 @@
     }
 
     /* إخفاء/إظهار حسب اللغة */
-    .lang-ar { display: block; }
+    .lang-ar { display: none; }
     .lang-en { display: none; }
-    .lang-fr { display: none; }
+    .lang-fr { display: block; }
+
+    body.ar .lang-ar { display: block; }
+    body.ar .lang-en { display: none; }
+    body.ar .lang-fr { display: none; }
 
     body.en .lang-ar { display: none; }
     body.en .lang-en { display: block; }
@@ -461,19 +474,17 @@
     body.fr .lang-en { display: none; }
     body.fr .lang-fr { display: block; }
 
-    /* ===== IMPORTANT: العنوان ثابت ===== */
-    /* العنوان IcosioM Tools يبقى في مكانه دائماً */
+    /* ===== العنوان ثابت ===== */
     .box h1 {
         position: relative;
         left: 0;
         right: auto;
     }
 
-    /* عند العربية، الباقي يتغير لكن العنوان يبقى */
     body.ar .box {
         padding-left: 25px;
         padding-right: 0;
-        direction: ltr !important; /* العنوان يبقى يسار */
+        direction: ltr !important;
     }
 
     body.en .box {
@@ -488,7 +499,6 @@
         direction: ltr;
     }
 
-    /* باقي الصفحة يتغير اتجاهها */
     body.ar .boc {
         direction: rtl;
         text-align: right;
@@ -687,22 +697,27 @@
         .boc {
             width: 100%;
             padding: 15px;
-            margin-top: 80px;
+            margin-top: 70px;
         }
 
         .box {
             height: auto;
-            min-height: 60px;
-            padding: 10px 15px;
+            min-height: 55px;
+            padding: 8px 12px;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             position: relative;
         }
 
         .box h1 {
-            font-size: 16px;
+            font-size: 14px;
             height: auto;
-            padding: 5px 10px;
+            padding: 4px 8px;
+        }
+
+        .box img {
+            width: 28px;
+            height: 28px;
         }
 
         .lang-buttons {
@@ -711,6 +726,11 @@
             right: auto;
             justify-content: center;
             margin: 5px 0;
+        }
+
+        .lang-btn {
+            font-size: 10px;
+            padding: 4px 10px;
         }
 
         .plan {
@@ -733,34 +753,18 @@
         }
 
         h3 {
-            font-size: 13px;
-            padding: 8px;
+            font-size: 12px;
+            padding: 6px;
         }
 
         .pricing-note {
-            font-size: 13px;
-            padding: 14px 16px;
+            font-size: 12px;
+            padding: 12px 14px;
         }
 
         #pricingContainer01 img {
-            width: 120px !important;
-            height: 120px !important;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .box h1 {
-            font-size: 14px;
-        }
-
-        .box img {
-            width: 28px;
-            height: 28px;
-        }
-
-        .lang-btn {
-            font-size: 10px;
-            padding: 4px 10px;
+            width: 100px !important;
+            height: 100px !important;
         }
 
         .plan .pricing {
@@ -779,8 +783,33 @@
         .usdt-card .usdt-price {
             font-size: 22px;
         }
+    }
 
-       
+    @media (max-width: 480px) {
+        .box h1 {
+            font-size: 12px;
+        }
+
+        .box img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .lang-btn {
+            font-size: 9px;
+            padding: 3px 8px;
+        }
+
+        .boc {
+            padding: 10px;
+            margin-top: 60px;
+        }
+
+        button {
+            font-size: 11px;
+            padding: 8px 14px;
+            letter-spacing: 1px;
+        }
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
@@ -801,11 +830,10 @@
     }
 </style>
 
-<body class="ar">
+<body class="fr">
 
     <div class="box">
         <img src="par.png">
-        <!-- ===== العنوان ثابت ===== -->
         <h1>IcosioM Tools</h1>
     </div>
 
@@ -821,35 +849,7 @@
         <h1>BetaTime</h1>
         <br>
 
-        <!-- ===== النصوص العربية ===== -->
-        <div class="lang-ar">
-            <h3>يقوم BetaTime بأتمتة نشر الفيديوهات على TikTok، دون الحاجة إلى تدخل يدوي بعد الإعداد الأولي</h3>
-            <h3>يمكنك جدولة أوقات النشر لكل يوم من أيام الأسبوع.</h3>
-            <h3>يدعم النشر التلقائي لما يصل إلى ثلاثة فيديوهات يومياً.</h3>
-            <br>
-            <h3>يقوم البرنامج بسحب الفيديوهات مباشرة من المجلد الذي تختاره، ويضيف الهاشتاغات تلقائياً،</h3>
-            <h3>وينشرها في الوقت المحدد—كل ذلك دون الحاجة إلى النشر اليدوي.</h3>
-            <br>
-            <h3>يستخدم BetaTime توقيتاً ذكياً للمساعدة في زيادة الوصول والمشاهدات</h3>
-            <h3>مما يوفر عليك الوقت والجهد في إدارة المحتوى</h3>
-            <h3>مع الحفاظ على نشاط حسابك ونموه المستمر.</h3>
-        </div>
-
-        <!-- ===== النصوص الإنجليزية ===== -->
-        <div class="lang-en">
-            <h3>BetaTime automates video posting on TikTok, requiring no manual intervention after the initial setup</h3>
-            <h3>You can schedule posting times for each day of the week.</h3>
-            <h3>It supports the automatic posting of up to three videos per day.</h3>
-            <br>
-            <h3>The program retrieves videos directly from your selected folder, automatically adds hashtags,</h3>
-            <h3>and publishes them at the scheduled time—all without the need for manual posting.</h3>
-            <br>
-            <h3>BetaTime utilizes smart timing to help increase reach and views,</h3>
-            <h3>saving you time and effort in content management</h3>
-            <h3>while maintaining your account's activity and continuous growth.</h3>
-        </div>
-
-        <!-- ===== النصوص الفرنسية ===== -->
+        <!-- ===== FRANÇAIS (par défaut) ===== -->
         <div class="lang-fr">
             <h3>BetaTime automatise la publication de vidéos sur TikTok, sans intervention manuelle après la configuration initiale</h3>
             <h3>Vous pouvez planifier les heures de publication pour chaque jour de la semaine.</h3>
@@ -863,13 +863,41 @@
             <h3>tout en maintenant l'activité et la croissance continue de votre compte.</h3>
         </div>
 
+        <!-- ===== ARABE ===== -->
+        <div class="lang-ar">
+            <h3>يقوم BetaTime بأتمتة نشر الفيديوهات على TikTok، دون الحاجة إلى تدخل يدوي بعد الإعداد الأولي</h3>
+            <h3>يمكنك جدولة أوقات النشر لكل يوم من أيام الأسبوع.</h3>
+            <h3>يدعم النشر التلقائي لما يصل إلى ثلاثة فيديوهات يومياً.</h3>
+            <br>
+            <h3>يقوم البرنامج بسحب الفيديوهات مباشرة من المجلد الذي تختاره، ويضيف الهاشتاغات تلقائياً،</h3>
+            <h3>وينشرها في الوقت المحدد—كل ذلك دون الحاجة إلى النشر اليدوي.</h3>
+            <br>
+            <h3>يستخدم BetaTime توقيتاً ذكياً للمساعدة في زيادة الوصول والمشاهدات</h3>
+            <h3>مما يوفر عليك الوقت والجهد في إدارة المحتوى</h3>
+            <h3>مع الحفاظ على نشاط حسابك ونموه المستمر.</h3>
+        </div>
+
+        <!-- ===== ENGLISH ===== -->
+        <div class="lang-en">
+            <h3>BetaTime automates video posting on TikTok, requiring no manual intervention after the initial setup</h3>
+            <h3>You can schedule posting times for each day of the week.</h3>
+            <h3>It supports the automatic posting of up to three videos per day.</h3>
+            <br>
+            <h3>The program retrieves videos directly from your selected folder, automatically adds hashtags,</h3>
+            <h3>and publishes them at the scheduled time—all without the need for manual posting.</h3>
+            <br>
+            <h3>BetaTime utilizes smart timing to help increase reach and views,</h3>
+            <h3>saving you time and effort in content management</h3>
+            <h3>while maintaining your account's activity and continuous growth.</h3>
+        </div>
+
         <br>
 
         <a href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20product" target="_blank" style="text-decoration: none; align-self: center;">
             <button onclick="togglePricing(event)">
+                <span class="lang-fr">Demander</span>
                 <span class="lang-ar">طلب</span>
                 <span class="lang-en">Request</span>
-                <span class="lang-fr">Demander</span>
             </button>
         </a>
         <br>
@@ -878,6 +906,12 @@
 
             <!-- ===== التنبيه ===== -->
             <div class="pricing-note">
+                <div class="lang-fr">
+                    ⚠️ <span class="highlight">Avis important:</span><br>
+                    BetaTime est conçu pour fonctionner avec l'interface et les composants actuels de TikTok. Le programme utilise les éléments et boutons existants sur le site pour effectuer les opérations de connexion, de téléchargement de vidéos et de publication.<br><br>
+                    Si TikTok apporte des mises à jour ou des modifications à la conception du site, aux noms des éléments ou à son fonctionnement, certaines fonctions du programme peuvent être affectées ou cesser temporairement de fonctionner. Dans ce cas, une mise à jour du programme sera publiée pour rétablir la compatibilité avec les nouveaux changements.<br><br>
+                    Par conséquent, tout problème résultant des mises à jour du site TikTok n'indique pas un défaut de BetaTime lui-même, mais plutôt des changements apportés par la plateforme TikTok. Une mise à jour sera fournie si nécessaire.
+                </div>
                 <div class="lang-ar">
                     ⚠️ <span class="highlight">تنبيه هام:</span><br>
                     تم تصميم BetaTime ليعمل بالاعتماد على واجهة ومكونات موقع TikTok الحالية، لذلك فإن البرنامج يستخدم العناصر والأزرار الموجودة داخل الموقع لتنفيذ عمليات تسجيل الدخول، ورفع الفيديوهات، والنشر.<br><br>
@@ -890,15 +924,9 @@
                     If TikTok makes updates or changes to the site design, element names, or how it works, some program functions may be affected or temporarily stop working. In this case, a program update will be released to restore compatibility with the new changes.<br><br>
                     Therefore, any issues resulting from TikTok site updates do not indicate a defect in BetaTime itself, but rather changes made by the TikTok platform. An update will be provided when needed.
                 </div>
-                <div class="lang-fr">
-                    ⚠️ <span class="highlight">Avis important:</span><br>
-                    BetaTime est conçu pour fonctionner avec l'interface et les composants actuels de TikTok. Le programme utilise les éléments et boutons existants sur le site pour effectuer les opérations de connexion, de téléchargement de vidéos et de publication.<br><br>
-                    Si TikTok apporte des mises à jour ou des modifications à la conception du site, aux noms des éléments ou à son fonctionnement, certaines fonctions du programme peuvent être affectées ou cesser temporairement de fonctionner. Dans ce cas, une mise à jour du programme sera publiée pour rétablir la compatibilité avec les nouveaux changements.<br><br>
-                    Par conséquent, tout problème résultant des mises à jour du site TikTok n'indique pas un défaut de BetaTime lui-même, mais plutôt des changements apportés par la plateforme TikTok. Une mise à jour sera fournie si nécessaire.
-                </div>
             </div>
 
-            <!-- ===== بطاقة 1 ===== -->
+            <!-- ===== بطاقة 1 - فقط DZD ===== -->
             <div class="plan">
                 <div class="inner">
                     <span class="pricing">
@@ -908,26 +936,26 @@
                     </span>
                     <br>
                     <p class="title">
+                        <span class="lang-fr">Deuxième option</span>
                         <span class="lang-ar">الخيار الثاني</span>
-                        <span class="lang-en">The second option</span>
-                        <span class="lang-fr">La deuxième option</span>
+                        <span class="lang-en">Second option</span>
                     </p>
                     <p class="info">
+                        <span class="lang-fr">Le programme BetaTime publie automatiquement le contenu selon vos horaires prédéfinis ; il vous permet de créer un planning hebdomadaire, d'ajouter des hashtags et de récupérer automatiquement les vidéos d'un dossier pour les publier sans aucune intervention.</span>
                         <span class="lang-ar">يقوم برنامج BetaTime بنشر المحتوى تلقائياً وفقاً للأوقات التي تحددها مسبقاً؛ يتيح لك إنشاء جدول أسبوعي، وإضافة هاشتاغات، وسحب الفيديوهات تلقائياً من مجلد لنشرها دون أي تدخل منك.</span>
                         <span class="lang-en">The BetaTime program automatically publishes content according to your pre-set times; it allows you to create a weekly schedule, add hashtags, and automatically retrieve videos from a folder to publish them without any intervention on your part.</span>
-                        <span class="lang-fr">Le programme BetaTime publie automatiquement le contenu selon vos horaires prédéfinis ; il vous permet de créer un planning hebdomadaire, d'ajouter des hashtags et de récupérer automatiquement les vidéos d'un dossier pour les publier sans aucune intervention.</span>
                     </p>
                     <div class="action">
                         <a class="button" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20Professional%20plan">
+                            <span class="lang-fr">Choisir le forfait</span>
                             <span class="lang-ar">اختر الخطة</span>
                             <span class="lang-en">Choose plan</span>
-                            <span class="lang-fr">Choisir le forfait</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- ===== بطاقة 2 ===== -->
+            <!-- ===== بطاقة 2 - فقط DZD ===== -->
             <div class="plan">
                 <div class="inner">
                     <span class="pricing">
@@ -937,20 +965,20 @@
                     </span>
                     <br>
                     <p class="title">
+                        <span class="lang-fr">Première option</span>
                         <span class="lang-ar">الخيار الأول</span>
-                        <span class="lang-en">The first option</span>
-                        <span class="lang-fr">La première option</span>
+                        <span class="lang-en">First option</span>
                     </p>
                     <p class="info">
+                        <span class="lang-fr">Un outil de publication manuel qui publie les vidéos instantanément en un seul clic, sans avoir à définir des heures spécifiques ou à créer un planning. Idéal pour ceux qui préfèrent un contrôle précis sur le moment de publication de leur contenu.</span>
                         <span class="lang-ar">أداة نشر يدوية تنشر الفيديوهات فوراً بنقرة زر واحدة، دون الحاجة إلى تحديد أوقات محددة أو إنشاء جدول نشر. مثالية لمن يفضلون التحكم الدقيق في وقت نشر محتواهم.</span>
                         <span class="lang-en">A manual publishing tool that posts videos instantly with the click of a single button, eliminating the need to set specific times or create a publishing schedule. It is ideal for those who prefer to control exactly when their content is published.</span>
-                        <span class="lang-fr">Un outil de publication manuel qui publie les vidéos instantanément en un seul clic, sans avoir à définir des heures spécifiques ou à créer un planning. Idéal pour ceux qui préfèrent un contrôle précis sur le moment de publication de leur contenu.</span>
                     </p>
                     <div class="action">
                         <a class="button" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20Enterprise%20plan">
+                            <span class="lang-fr">Choisir le forfait</span>
                             <span class="lang-ar">اختر الخطة</span>
                             <span class="lang-en">Choose plan</span>
-                            <span class="lang-fr">Choisir le forfait</span>
                         </a>
                     </div>
                 </div>
@@ -959,45 +987,45 @@
             <!-- ===== زر USDT ===== -->
             <div style="width: 100%; text-align: center; margin: 10px 0;">
                 <button onclick="toggleUSDT()">
+                    <span class="lang-fr">💰 Voir les prix en USDT</span>
                     <span class="lang-ar">💰 عرض الأسعار بـ USDT</span>
                     <span class="lang-en">💰 View Prices in USDT</span>
-                    <span class="lang-fr">💰 Voir les prix en USDT</span>
                 </button>
             </div>
 
-            <!-- ===== صفحة USDT ===== -->
+            <!-- ===== صفحة USDT (فقط USDT بدون DZD) ===== -->
             <div class="usdt-page" id="usdtPage">
                 <h2>
+                    <span class="lang-fr">💲 Prix en USDT</span>
                     <span class="lang-ar">💲 الأسعار بـ USDT</span>
                     <span class="lang-en">💲 Prices in USDT</span>
-                    <span class="lang-fr">💲 Prix en USDT</span>
                 </h2>
                 <div class="usdt-grid">
                     <div class="usdt-card">
                         <div class="usdt-price">22.56 USDT</div>
                         <div class="usdt-label">
+                            <span class="lang-fr">Deuxième option</span>
                             <span class="lang-ar">الخيار الثاني</span>
                             <span class="lang-en">Second Option</span>
-                            <span class="lang-fr">Deuxième Option</span>
                         </div>
                         <a class="usdt-btn" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%203000DA%20plan%20(22.56%20USDT)" target="_blank">
+                            <span class="lang-fr">Commander</span>
                             <span class="lang-ar">اطلب الآن</span>
                             <span class="lang-en">Order Now</span>
-                            <span class="lang-fr">Commander</span>
                         </a>
                     </div>
 
                     <div class="usdt-card">
                         <div class="usdt-price">18.80 USDT</div>
                         <div class="usdt-label">
+                            <span class="lang-fr">Première option</span>
                             <span class="lang-ar">الخيار الأول</span>
                             <span class="lang-en">First Option</span>
-                            <span class="lang-fr">Première Option</span>
                         </div>
                         <a class="usdt-btn" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%202500DA%20plan%20(18.80%20USDT)" target="_blank">
+                            <span class="lang-fr">Commander</span>
                             <span class="lang-ar">اطلب الآن</span>
                             <span class="lang-en">Order Now</span>
-                            <span class="lang-fr">Commander</span>
                         </a>
                     </div>
                 </div>
@@ -1032,150 +1060,144 @@
 
         <!-- ===== زر المساعدة ===== -->
         <button onclick="togglePricing1(event)">
+            <span class="lang-fr">Aide BetaTime</span>
             <span class="lang-ar">مساعدة BetaTime</span>
             <span class="lang-en">BetaTime help</span>
-            <span class="lang-fr">Aide BetaTime</span>
         </button>
         <br>
 
         <!-- ===== HELP CONTAINER ===== -->
         <div class="pricing-container" id="pricingContainer01">
 
-            <!-- ===== HELP النصوص العربية ===== -->
-            <div class="lang-ar">
-                <h3>إذا واجهت أي مشكلة أثناء استخدام BetaTime، أو إذا لم يعمل البرنامج كما هو متوقع،</h3>
-                <h3>يرجى تشغيل ملف `Program.exe`. هذه الأداة مصممة لتشخيص المشاكل البسيطة، والتقارير التي تظهر أثناء التشغيل يمكن أن تساعد في تحديد سبب المشكلة.</h3>
-                <h3>قبل الاتصال بالدعم، يرجى تشغيل `Program.exe` ومراجعة المعلومات المعروضة؛ قد يسمح لك ذلك بحل المشكلة بسهولة.</h3>
-            </div>
-
-            <!-- ===== HELP النصوص الإنجليزية ===== -->
-            <div class="lang-en">
-                <h3>If you encounter any issues while using BetaTime, or if the software does not perform as expected,</h3>
-                <h3>please run the `Program.exe` file. This tool is designed to diagnose minor issues, and the reports generated during execution can help identify the cause of the problem.</h3>
-                <h3>Before contacting support, please run `Program.exe` and review the displayed information; this may allow you to resolve the issue easily.</h3>
-            </div>
-
-            <!-- ===== HELP النصوص الفرنسية ===== -->
             <div class="lang-fr">
                 <h3>Si vous rencontrez des problèmes lors de l'utilisation de BetaTime, ou si le logiciel ne fonctionne pas comme prévu,</h3>
                 <h3>veuillez exécuter le fichier `Program.exe`. Cet outil est conçu pour diagnostiquer les problèmes mineurs, et les rapports générés lors de l'exécution peuvent aider à identifier la cause du problème.</h3>
                 <h3>Avant de contacter le support, veuillez exécuter `Program.exe` et examiner les informations affichées ; cela peut vous permettre de résoudre le problème facilement.</h3>
             </div>
 
-            <!-- ===== FOLDER ===== -->
+            <div class="lang-ar">
+                <h3>إذا واجهت أي مشكلة أثناء استخدام BetaTime، أو إذا لم يعمل البرنامج كما هو متوقع،</h3>
+                <h3>يرجى تشغيل ملف `Program.exe`. هذه الأداة مصممة لتشخيص المشاكل البسيطة، والتقارير التي تظهر أثناء التشغيل يمكن أن تساعد في تحديد سبب المشكلة.</h3>
+                <h3>قبل الاتصال بالدعم، يرجى تشغيل `Program.exe` ومراجعة المعلومات المعروضة؛ قد يسمح لك ذلك بحل المشكلة بسهولة.</h3>
+            </div>
+
+            <div class="lang-en">
+                <h3>If you encounter any issues while using BetaTime, or if the software does not perform as expected,</h3>
+                <h3>please run the `Program.exe` file. This tool is designed to diagnose minor issues, and the reports generated during execution can help identify the cause of the problem.</h3>
+                <h3>Before contacting support, please run `Program.exe` and review the displayed information; this may allow you to resolve the issue easily.</h3>
+            </div>
+
             <div class="folder-highlight">
                 <img src="folder.png" alt="folder">
                 <span>
                     <strong>folder.png</strong> — 
+                    <span class="lang-fr">Sélectionnez votre dossier vidéo</span>
                     <span class="lang-ar">اختر مجلد الفيديوهات</span>
                     <span class="lang-en">Select your video folder</span>
-                    <span class="lang-fr">Sélectionnez votre dossier vidéo</span>
                 </span>
             </div>
 
-            <!-- ===== عنوان الرسائل ===== -->
             <h3 style="color: #f0b35a; font-size: 16px; margin-top: 10px;">
+                <span class="lang-fr">📋 Signification des messages BetaTime</span>
                 <span class="lang-ar">📋 معاني رسائل BetaTime</span>
                 <span class="lang-en">📋 BetaTime Messages Meaning</span>
-                <span class="lang-fr">📋 Signification des messages BetaTime</span>
             </h3>
 
-            <!-- ===== الرسائل ===== -->
             <div class="msg-item">
                 <strong>Connecting to TikTok...</strong> — 
+                <span class="lang-fr">Le programme se connecte à TikTok.</span>
                 <span class="lang-ar">يقوم البرنامج بالاتصال بموقع تيك توك.</span>
                 <span class="lang-en">The program is connecting to TikTok.</span>
-                <span class="lang-fr">Le programme se connecte à TikTok.</span>
             </div>
             <div class="msg-item">
                 <strong>Verification code required.</strong> — 
+                <span class="lang-fr">Un code de vérification a été envoyé à votre email ou téléphone. Entrez le code et appuyez sur Entrée pour continuer.</span>
                 <span class="lang-ar">تم إرسال رمز تحقق إلى بريدك الإلكتروني أو هاتفك. أدخل الرمز ثم اضغط Enter لمتابعة التشغيل.</span>
                 <span class="lang-en">A verification code has been sent to your email or phone. Enter the code and press Enter to continue.</span>
-                <span class="lang-fr">Un code de vérification a été envoyé à votre email ou téléphone. Entrez le code et appuyez sur Entrée pour continuer.</span>
             </div>
             <div class="msg-item">
                 <strong>Restarting BetaTime...</strong> — 
+                <span class="lang-fr">Le programme redémarre pour appliquer les paramètres ou après avoir terminé la vérification.</span>
                 <span class="lang-ar">يقوم البرنامج بإعادة التشغيل لتطبيق الإعدادات أو بعد إكمال التحقق.</span>
                 <span class="lang-en">The program is restarting to apply settings or after completing verification.</span>
-                <span class="lang-fr">Le programme redémarre pour appliquer les paramètres ou après avoir terminé la vérification.</span>
             </div>
             <div class="msg-item">
                 <strong>Loading videos...</strong> — 
+                <span class="lang-fr">Lecture des vidéos depuis le dossier que vous avez sélectionné.</span>
                 <span class="lang-ar">جارٍ قراءة الفيديوهات من المجلد الذي اخترته.</span>
                 <span class="lang-en">Reading videos from the folder you selected.</span>
-                <span class="lang-fr">Lecture des vidéos depuis le dossier que vous avez sélectionné.</span>
             </div>
             <div class="msg-item">
                 <strong>Checking uploaded videos...</strong> — 
+                <span class="lang-fr">Le programme vérifie les vidéos déjà publiées pour éviter de les republier.</span>
                 <span class="lang-ar">يقوم البرنامج بالتحقق من الفيديوهات التي تم نشرها سابقًا حتى لا يعيد نشرها.</span>
                 <span class="lang-en">The program checks previously uploaded videos to avoid republishing them.</span>
-                <span class="lang-fr">Le programme vérifie les vidéos déjà publiées pour éviter de les republier.</span>
             </div>
             <div class="msg-item">
                 <strong>This video has already been uploaded.</strong> — 
+                <span class="lang-fr">Cette vidéo a déjà été publiée, passage à la vidéo suivante.</span>
                 <span class="lang-ar">هذا الفيديو منشور مسبقًا، وسيتم الانتقال إلى الفيديو التالي.</span>
                 <span class="lang-en">This video has already been published, moving to the next video.</span>
-                <span class="lang-fr">Cette vidéo a déjà été publiée, passage à la vidéo suivante.</span>
             </div>
             <div class="msg-item">
                 <strong>Checking video size...</strong> — 
+                <span class="lang-fr">Le programme vérifie la taille de la vidéo avant de la télécharger.</span>
                 <span class="lang-ar">يقوم البرنامج بفحص حجم الفيديو قبل رفعه.</span>
                 <span class="lang-en">The program checks the video size before uploading.</span>
-                <span class="lang-fr">Le programme vérifie la taille de la vidéo avant de la télécharger.</span>
             </div>
             <div class="msg-item">
                 <strong>The video size is too large.</strong> — 
+                <span class="lang-fr">La taille de la vidéo dépasse la limite. Réduisez-la à moins de 2 MB et réessayez.</span>
                 <span class="lang-ar">حجم الفيديو أكبر من الحد المسموح به. قلل حجمه إلى أقل من 2 MB ثم أعد المحاولة.</span>
                 <span class="lang-en">Video size exceeds the limit. Reduce it to less than 2 MB and try again.</span>
-                <span class="lang-fr">La taille de la vidéo dépasse la limite. Réduisez-la à moins de 2 MB et réessayez.</span>
             </div>
             <div class="msg-item">
                 <strong>Uploading video...</strong> — 
+                <span class="lang-fr">Téléchargement de la vidéo sur TikTok.</span>
                 <span class="lang-ar">جارٍ رفع الفيديو إلى تيك توك.</span>
                 <span class="lang-en">Uploading video to TikTok.</span>
-                <span class="lang-fr">Téléchargement de la vidéo sur TikTok.</span>
             </div>
             <div class="msg-item">
                 <strong>Video uploaded successfully.</strong> — 
+                <span class="lang-fr">Vidéo téléchargée avec succès.</span>
                 <span class="lang-ar">تم رفع الفيديو بنجاح.</span>
                 <span class="lang-en">Video uploaded successfully.</span>
-                <span class="lang-fr">Vidéo téléchargée avec succès.</span>
             </div>
             <div class="msg-item">
                 <strong>Adding hashtags...</strong> — 
+                <span class="lang-fr">Ajout des hashtags à la vidéo.</span>
                 <span class="lang-ar">جارٍ إضافة الهاشتاغات إلى الفيديو.</span>
                 <span class="lang-en">Adding hashtags to the video.</span>
-                <span class="lang-fr">Ajout des hashtags à la vidéo.</span>
             </div>
             <div class="msg-item">
                 <strong>Publishing video...</strong> — 
+                <span class="lang-fr">Publication de la vidéo sur TikTok.</span>
                 <span class="lang-ar">جارٍ نشر الفيديو على تيك توك.</span>
                 <span class="lang-en">Publishing video on TikTok.</span>
-                <span class="lang-fr">Publication de la vidéo sur TikTok.</span>
             </div>
             <div class="msg-item">
                 <strong>Video published successfully.</strong> — 
+                <span class="lang-fr">Vidéo publiée avec succès.</span>
                 <span class="lang-ar">تم نشر الفيديو بنجاح.</span>
                 <span class="lang-en">Video published successfully.</span>
-                <span class="lang-fr">Vidéo publiée avec succès.</span>
             </div>
             <div class="msg-item">
                 <strong>All tasks completed successfully.</strong> — 
+                <span class="lang-fr">Toutes les tâches terminées avec succès.</span>
                 <span class="lang-ar">تم الانتهاء من جميع العمليات بنجاح.</span>
                 <span class="lang-en">All tasks completed successfully.</span>
-                <span class="lang-fr">Toutes les tâches terminées avec succès.</span>
             </div>
             <div class="msg-item">
                 <strong>An unexpected error occurred.</strong> — 
+                <span class="lang-fr">Une erreur inattendue s'est produite. Fermez le programme et redémarrez-le. Si l'erreur persiste, vérifiez votre connexion Internet et vos identifiants de compte.</span>
                 <span class="lang-ar">حدث خطأ غير متوقع. أغلق البرنامج ثم أعد تشغيله، وإذا استمر الخطأ فتأكد من اتصال الإنترنت وصحة بيانات الحساب.</span>
                 <span class="lang-en">An unexpected error occurred. Close the program and restart it. If the error persists, check your internet connection and account credentials.</span>
-                <span class="lang-fr">Une erreur inattendue s'est produite. Fermez le programme et redémarrez-le. Si l'erreur persiste, vérifiez votre connexion Internet et vos identifiants de compte.</span>
             </div>
             <div class="msg-item">
                 <strong>[STOP]</strong> — 
+                <span class="lang-fr">Le programme s'est arrêté en raison d'une erreur. Lisez le message ci-dessous pour identifier le problème et suivez les instructions appropriées.</span>
                 <span class="lang-ar">توقف البرنامج بسبب خطأ. اقرأ الرسالة التي تظهر أسفلها لمعرفة سبب المشكلة واتبع التعليمات المناسبة.</span>
                 <span class="lang-en">The program stopped due to an error. Read the message below to identify the issue and follow the appropriate instructions.</span>
-                <span class="lang-fr">Le programme s'est arrêté en raison d'une erreur. Lisez le message ci-dessous pour identifier le problème et suivez les instructions appropriées.</span>
             </div>
 
         </div>
@@ -1220,7 +1242,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            var savedLang = localStorage.getItem('preferred_lang') || 'ar';
+            var savedLang = localStorage.getItem('preferred_lang') || 'fr';
             toggleLanguage(savedLang);
         });
 
