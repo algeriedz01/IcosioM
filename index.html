@@ -18,424 +18,60 @@
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         min-height: 100vh;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        padding: 0 10px;
+        padding: 0 12px;
     }
 
-    .box {
+    /* ===== HEADER ===== */
+    .header {
         background-color: rgb(255, 255, 255);
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        color: rgb(0, 0, 0);
-        font-size: 14px;
-        padding: 15px;
-        line-height: 0.3;
-        margin: 0;
-        position: fixed;
-        height: 65px;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        padding-left: 25px;
-        line-height: 0.9;
-        gap: 12px;
-    }
-
-    .boc {
-        background-color: rgb(19, 19, 19);
         width: 100%;
         max-width: 950px;
-        height: auto;
-        min-height: 750px;
-        padding: 20px;
-        border-radius: 10px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        height: 60px;
         display: flex;
-        flex-direction: column;
-        margin-top: 80px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-radius: 12px;
+        margin-top: 10px;
+        position: sticky;
+        top: 10px;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        flex-wrap: wrap;
+        gap: 8px;
     }
 
-    h3 {
-        padding: 10px;
-        color: rgb(253, 253, 253);
-        font-size: 14px;
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
     }
 
-    img {
+    .header-left img {
         width: 35px;
         height: 35px;
         object-fit: contain;
+        flex-shrink: 0;
     }
 
-    button {
-        position: relative;
-        padding: 10px 20px;
-        border-radius: 7px;
-        border: 1px solid rgb(255, 255, 255);
-        font-size: 14px;
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 2px;
-        background: transparent;
-        color: #fff;
-        overflow: hidden;
-        box-shadow: 0 0 0 0 transparent;
-        -webkit-transition: all 0.2s ease-in;
-        -moz-transition: all 0.2s ease-in;
-        transition: all 0.2s ease-in;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background: rgb(209, 95, 1);
-        box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
-        -webkit-transition: all 0.2s ease-out;
-        -moz-transition: all 0.2s ease-out;
-        transition: all 0.2s ease-out;
-    }
-
-    button:hover::before {
-        -webkit-animation: sh02 0.5s 0s linear;
-        -moz-animation: sh02 0.5s 0s linear;
-        animation: sh02 0.5s 0s linear;
-    }
-
-    button::before {
-        content: '';
-        display: block;
-        width: 0px;
-        height: 86%;
-        position: absolute;
-        top: 7%;
-        left: 0%;
-        opacity: 0;
-        background: #fff;
-        box-shadow: 0 0 50px 30px #fff;
-        -webkit-transform: skewX(-20deg);
-        -moz-transform: skewX(-20deg);
-        -ms-transform: skewX(-20deg);
-        -o-transform: skewX(-20deg);
-        transform: skewX(-20deg);
-    }
-
-    @keyframes sh02 {
-        from {
-            opacity: 0;
-            left: 0%;
-        }
-        50% {
-            opacity: 1;
-        }
-        to {
-            opacity: 0;
-            left: 100%;
-        }
-    }
-
-    button:active {
-        box-shadow: 0 0 0 0 transparent;
-        -webkit-transition: box-shadow 0.2s ease-in;
-        -moz-transition: box-shadow 0.2s ease-in;
-        transition: box-shadow 0.2s ease-in;
-    }
-
-    @media (max-width: 480px) {
-        .video-wrapper video {
-            max-height: 200px;
-        }
-    }
-
-    h1 {
-        background-color: rgb(255, 255, 255);
-        border-radius: 10px;
-        height: 51px;
-        padding: 10px;
+    .header-left h1 {
         font-size: 18px;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-    }
-
-    .terminal_toolbar {
-        display: flex;
-        height: 30px;
-        align-items: center;
-        padding: 0 8px;
-        box-sizing: border-box;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        background: #212121;
-        justify-content: space-between;
-    }
-
-    .butt {
-        display: flex;
-        align-items: center;
-    }
-
-    .btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        color: #000;
+        background: transparent;
         padding: 0;
-        margin-right: 5px;
-        font-size: 8px;
-        height: 12px;
-        width: 12px;
-        box-sizing: border-box;
-        border: none;
-        border-radius: 100%;
-        background: linear-gradient(#7d7871 0%, #595953 100%);
-        text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
-        box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
-    }
-
-    .btn-color {
-        background: #ee411a;
-    }
-
-    .btn:hover {
-        cursor: pointer;
-    }
-
-    .btn:focus {
-        outline: none;
-    }
-
-    .butt--exit {
-        background: linear-gradient(#f37458 0%, #de4c12 100%);
-    }
-
-    .add_tab {
-        border: 1px solid #fff;
-        color: #fff;
-        padding: 0 6px;
-        border-radius: 4px 4px 0 0;
-        border-bottom: none;
-        cursor: pointer;
-    }
-
-    .user {
-        color: #d5d0ce;
-        margin-left: 6px;
-        font-size: 14px;
-        line-height: 15px;
-    }
-
-    .terminal_body {
-        background: rgba(0, 0, 0, 0.6);
         height: auto;
-        min-height: 40px;
-        width: 100%;
-        padding: 10px 12px;
-        margin-top: -1px;
-        font-size: 12px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        white-space: nowrap;
     }
 
-    .terminal_promt {
+    .header-right {
         display: flex;
+        align-items: center;
+        gap: 6px;
         flex-wrap: wrap;
-        align-items: center;
-        gap: 4px;
-    }
-
-    .terminal_promt span {
-        margin-left: 4px;
-    }
-
-    .terminal_user {
-        color: #1eff8e;
-    }
-
-    .terminal_location {
-        color: #030303;
-    }
-
-    .terminal_bling {
-        color: #dddddd;
-    }
-
-    .terminal_cursor {
-        display: block;
-        height: 14px;
-        width: 5px;
-        margin-left: 10px;
-        animation: curbl 1200ms linear infinite;
-    }
-
-    @keyframes curbl {
-        0% {
-            background: #ffffff;
-        }
-        49% {
-            background: #ffffff;
-        }
-        60% {
-            background: transparent;
-        }
-        99% {
-            background: transparent;
-        }
-        100% {
-            background: #ffffff;
-        }
-    }
-
-    .pricing-container {
-        display: none;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-        margin: 15px 0 20px;
-        width: 100%;
-    }
-
-    .pricing-container.show {
-        display: flex;
-    }
-
-    .plan {
-        border-radius: 16px;
-        box-shadow: 0 30px 30px -25px rgba(0, 0, 0, 0.205);
-        padding: 10px;
-        background-color: #fff;
-        color: #333638;
-        max-width: 300px;
-        flex: 1;
-        min-width: 240px;
-    }
-
-    .plan strong {
-        font-weight: 600;
-        color: #474747;
-    }
-
-    .plan .inner {
-        align-items: center;
-        padding: 20px;
-        padding-top: 40px;
-        background-color: #ffffff;
-        border-radius: 12px;
-        position: relative;
-    }
-
-    .plan .pricing {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color: #000000;
-        border-radius: 99em 0 0 99em;
-        display: flex;
-        align-items: center;
-        padding: 0.625em 0.75em;
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #ffffff;
-    }
-
-    .plan .pricing small {
-        color: #707a91;
-        font-size: 0.75em;
-        margin-left: 0.25em;
-    }
-
-    .plan .title {
-        font-weight: 600;
-        font-size: 1.25rem;
-        color: #425675;
-    }
-
-    .plan .title+* {
-        margin-top: 0.75rem;
-    }
-
-    .plan .info+* {
-        margin-top: 1rem;
-    }
-
-    .plan .features {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .plan .features li {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        list-style: none;
-        padding: 4px 0;
-    }
-
-    .plan .features li+* {
-        margin-top: 0.75rem;
-    }
-
-    .plan .features .icon {
-        background-color: #ffffff;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #000000;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-    }
-
-    .plan .features .icon svg {
-        width: 14px;
-        height: 14px;
-    }
-
-    .plan .features+* {
-        margin-top: 1.25rem;
-    }
-
-    .plan .action {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: end;
-    }
-
-    .plan .button {
-        background-color: #000000;
-        border-radius: 6px;
-        color: #fff;
-        font-weight: 500;
-        font-size: 1.125rem;
-        text-align: center;
-        border: 0;
-        outline: 0;
-        width: 100%;
-        padding: 0.625em 0.75em;
-        text-decoration: none;
-    }
-
-    .plan .button:hover,
-    .plan .button:focus {
-        background-color: #2e2e2e;
-    }
-
-    /* ===== إضافات جديدة ===== */
-
-    /* أزرار تغيير اللغة */
-    .lang-buttons {
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        z-index: 200;
-        display: flex;
-        gap: 5px;
-        flex-wrap: wrap;
+        flex-shrink: 0;
     }
 
     .lang-btn {
@@ -450,6 +86,7 @@
         transition: 0.3s;
         text-transform: none;
         letter-spacing: 0;
+        white-space: nowrap;
     }
 
     .lang-btn:hover {
@@ -457,88 +94,191 @@
         box-shadow: 0 0 15px rgba(240, 155, 34, 0.4);
     }
 
-    /* إخفاء/إظهار حسب اللغة */
-    .lang-ar { display: none; }
-    .lang-en { display: none; }
-    .lang-fr { display: block; }
-
-    body.ar .lang-ar { display: block; }
-    body.ar .lang-en { display: none; }
-    body.ar .lang-fr { display: none; }
-
-    body.en .lang-ar { display: none; }
-    body.en .lang-en { display: block; }
-    body.en .lang-fr { display: none; }
-
-    body.fr .lang-ar { display: none; }
-    body.fr .lang-en { display: none; }
-    body.fr .lang-fr { display: block; }
-
-    /* ===== العنوان ثابت ===== */
-    .box h1 {
-        position: relative;
-        left: 0;
-        right: auto;
-    }
-
-    body.ar .box {
-        padding-left: 25px;
-        padding-right: 0;
-        direction: ltr !important;
-    }
-
-    body.en .box {
-        padding-left: 25px;
-        padding-right: 0;
-        direction: ltr;
-    }
-
-    body.fr .box {
-        padding-left: 25px;
-        padding-right: 0;
-        direction: ltr;
-    }
-
-    body.ar .boc {
-        direction: rtl;
-        text-align: right;
-    }
-
-    body.en .boc {
-        direction: ltr;
-        text-align: left;
-    }
-
-    body.fr .boc {
-        direction: ltr;
-        text-align: left;
-    }
-
-    /* تنبيه الأسعار */
-    .pricing-note {
+    /* ===== MAIN ===== */
+    .main-content {
         width: 100%;
-        padding: 18px 22px;
-        margin: 0 0 15px 0;
+        max-width: 950px;
+        background: rgb(19, 19, 19);
+        padding: 20px;
+        border-radius: 12px;
+        margin: 10px 0 20px;
+    }
+
+    .main-title {
+        font-size: 28px;
+        color: #fff;
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+        padding: 8px 16px;
+        display: inline-block;
+    }
+
+    .desc-text {
+        color: #ddd;
+        font-size: 14px;
+        line-height: 1.8;
+        padding: 6px 10px;
+    }
+
+    .btn-custom {
+        position: relative;
+        padding: 10px 24px;
+        border-radius: 7px;
+        border: 1px solid rgb(255, 255, 255);
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        margin: 5px 0;
+    }
+
+    .btn-custom:hover {
+        background: rgb(209, 95, 1);
+        box-shadow: 0 0 30px rgba(0, 142, 236, 0.815);
+    }
+
+    .btn-custom::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: 0.5s;
+    }
+
+    .btn-custom:hover::before {
+        left: 100%;
+    }
+
+    .btn-center {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .btn-center a {
+        text-decoration: none;
+    }
+
+    /* ===== NOTICE ===== */
+    .notice-box {
+        width: 100%;
+        padding: 16px 20px;
+        margin: 15px 0;
         background: linear-gradient(135deg, #1a1a2e, #16213e);
         border: 2px solid #f09b22;
         border-radius: 12px;
         color: #e0e0e0;
         font-size: 14px;
         line-height: 1.9;
-        text-align: left;
     }
 
-    body.ar .pricing-note {
-        text-align: right;
-    }
-
-    .pricing-note .highlight {
+    .notice-box .highlight {
         color: #f0b35a;
         font-weight: bold;
         font-size: 15px;
     }
 
-    /* صفحة USDT */
+    /* ===== PRICING ===== */
+    .pricing-container {
+        display: none;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    .pricing-container.show {
+        display: flex;
+    }
+
+    .plan-card {
+        border-radius: 16px;
+        box-shadow: 0 30px 30px -25px rgba(0,0,0,0.5);
+        padding: 10px;
+        background: #fff;
+        color: #333;
+        max-width: 300px;
+        flex: 1;
+        min-width: 240px;
+        transition: transform 0.3s ease;
+    }
+
+    .plan-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .plan-card .inner {
+        padding: 20px;
+        padding-top: 40px;
+        background: #fff;
+        border-radius: 12px;
+        position: relative;
+    }
+
+    .plan-card .pricing-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #000;
+        border-radius: 99em 0 0 99em;
+        padding: 0.6em 0.9em;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .plan-card .pricing-badge small {
+        color: #aaa;
+        font-size: 0.7em;
+    }
+
+    .plan-card .plan-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #425675;
+        margin-bottom: 8px;
+    }
+
+    .plan-card .plan-desc {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #555;
+        margin: 8px 0;
+    }
+
+    .plan-card .plan-action {
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .plan-card .plan-btn {
+        display: block;
+        background: #000;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 1rem;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        transition: 0.3s;
+        width: 100%;
+    }
+
+    .plan-card .plan-btn:hover {
+        background: #2e2e2e;
+    }
+
+    /* ===== USDT ===== */
     .usdt-page {
         display: none;
         width: 100%;
@@ -611,71 +351,104 @@
         background: #ffb347;
     }
 
-    /* تكبير الصورة folder.png */
-    #pricingContainer01 img {
-        width: 200px !important;
-        height: 200px !important;
-        object-fit: contain;
-        display: block;
-        margin: 10px auto;
+    /* ===== TERMINAL ===== */
+    .terminal-box {
+        width: 100%;
+        max-width: 400px;
+        margin: 20px 0;
     }
 
-    /* تنظيم الكتابة في help */
-    #pricingContainer01 {
+    .terminal-toolbar {
+        display: flex;
+        height: 30px;
+        align-items: center;
+        padding: 0 12px;
+        background: #212121;
+        border-radius: 8px 8px 0 0;
+        justify-content: space-between;
+    }
+
+    .terminal-dots {
+        display: flex;
+        gap: 6px;
+    }
+
+    .terminal-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: none;
+    }
+
+    .terminal-dot.red { background: #ee411a; }
+    .terminal-dot.yellow { background: #e6b422; }
+    .terminal-dot.green { background: #3bb33b; }
+
+    .terminal-user-label {
+        color: #d5d0ce;
+        font-size: 13px;
+    }
+
+    .terminal-body {
+        background: rgba(0,0,0,0.8);
+        padding: 10px 14px;
+        border-radius: 0 0 8px 8px;
+        font-size: 13px;
+        color: #eee;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .terminal-body .prompt {
+        color: #1eff8e;
+    }
+
+    .terminal-body .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 16px;
+        background: #fff;
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+
+    /* ===== HELP ===== */
+    .help-container {
         display: none;
         flex-direction: column;
         gap: 8px;
-        padding: 20px;
-        background-color: rgb(30, 30, 30);
+        padding: 18px;
+        background: #1e1e1e;
         border-radius: 12px;
         margin: 15px 0;
         width: 100%;
     }
 
-    #pricingContainer01.show {
+    .help-container.show {
         display: flex;
     }
 
-    #pricingContainer01 h3 {
-        color: rgb(220, 220, 220);
+    .help-container h3 {
+        color: #ddd;
         font-size: 14px;
         font-weight: normal;
+        line-height: 1.8;
         padding: 4px 0;
-        margin: 0;
-        line-height: 1.8;
-        text-align: left;
     }
 
-    body.ar #pricingContainer01 h3 {
-        text-align: right;
-    }
-
-    .msg-item {
-        color: #d0d0d0;
-        font-size: 13px;
-        line-height: 1.8;
-        padding: 6px 12px;
-        background-color: rgb(40, 40, 40);
-        border-radius: 6px;
-        border-left: 3px solid #f09b22;
-        margin: 2px 0;
-    }
-
-    body.ar .msg-item {
-        border-left: none;
-        border-right: 3px solid #f09b22;
-    }
-
-    .msg-item strong {
-        color: #f0b35a;
-    }
-
-    .folder-highlight {
+    .help-container .folder-highlight {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 15px;
-        background: rgb(35, 35, 35);
+        background: #252525;
         padding: 15px;
         border-radius: 10px;
         margin: 10px 0;
@@ -683,49 +456,95 @@
         flex-wrap: wrap;
     }
 
-    .folder-highlight span {
+    .help-container .folder-highlight img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+    }
+
+    .help-container .folder-highlight span {
         color: #eee;
         font-size: 15px;
     }
 
-    .folder-highlight span strong {
+    .help-container .folder-highlight span strong {
         color: #f0b35a;
     }
 
+    .msg-item {
+        color: #d0d0d0;
+        font-size: 13px;
+        line-height: 1.8;
+        padding: 6px 12px;
+        background: #2a2a2a;
+        border-radius: 6px;
+        border-left: 3px solid #f09b22;
+        margin: 3px 0;
+    }
+
+    /* ===== LANGUAGES ===== */
+    .lang-ar { display: none; }
+    .lang-en { display: none; }
+    .lang-fr { display: block; }
+
+    body.ar .lang-ar { display: block; }
+    body.ar .lang-en { display: none; }
+    body.ar .lang-fr { display: none; }
+
+    body.en .lang-ar { display: none; }
+    body.en .lang-en { display: block; }
+    body.en .lang-fr { display: none; }
+
+    body.fr .lang-ar { display: none; }
+    body.fr .lang-en { display: none; }
+    body.fr .lang-fr { display: block; }
+
+    /* ===== DIRECTION ===== */
+    body.ar .main-content { direction: rtl; text-align: right; }
+    body.en .main-content { direction: ltr; text-align: left; }
+    body.fr .main-content { direction: ltr; text-align: left; }
+
+    body.ar .plan-card .pricing-badge {
+        right: auto;
+        left: 0;
+        border-radius: 0 99em 99em 0;
+    }
+
+    body.ar .msg-item {
+        border-left: none;
+        border-right: 3px solid #f09b22;
+    }
+
+    /* ============================================================ */
     /* ===== RESPONSIVE ===== */
+    /* ============================================================ */
+
     @media (max-width: 768px) {
-        .boc {
-            width: 100%;
-            padding: 15px;
-            margin-top: 70px;
+        body {
+            padding: 0 8px;
         }
 
-        .box {
+        .header {
             height: auto;
             min-height: 55px;
-            padding: 8px 12px;
-            flex-wrap: wrap;
+            padding: 8px 14px;
+            border-radius: 10px;
+            margin-top: 8px;
+            top: 8px;
             gap: 6px;
-            position: relative;
         }
 
-        .box h1 {
+        .header-left h1 {
             font-size: 14px;
-            height: auto;
-            padding: 4px 8px;
         }
 
-        .box img {
+        .header-left img {
             width: 28px;
             height: 28px;
         }
 
-        .lang-buttons {
-            position: relative;
-            top: auto;
-            right: auto;
-            justify-content: center;
-            margin: 5px 0;
+        .header-right {
+            gap: 4px;
         }
 
         .lang-btn {
@@ -733,9 +552,44 @@
             padding: 4px 10px;
         }
 
-        .plan {
+        .main-content {
+            padding: 14px 12px;
+            margin: 8px 0 15px;
+            border-radius: 10px;
+        }
+
+        .main-title {
+            font-size: 20px;
+            padding: 6px 12px;
+        }
+
+        .desc-text {
+            font-size: 13px;
+            padding: 4px 8px;
+            line-height: 1.7;
+        }
+
+        .plan-card {
             min-width: 100%;
             max-width: 100%;
+        }
+
+        .plan-card .inner {
+            padding: 16px;
+            padding-top: 35px;
+        }
+
+        .plan-card .pricing-badge {
+            font-size: 1rem;
+            padding: 0.4em 0.7em;
+        }
+
+        .plan-card .plan-title {
+            font-size: 1rem;
+        }
+
+        .plan-card .plan-desc {
+            font-size: 0.85rem;
         }
 
         .usdt-card {
@@ -743,54 +597,89 @@
             max-width: 100%;
         }
 
-        .terminal_body {
-            width: 100%;
-        }
-
-        .container {
-            width: 100%;
-            height: auto;
-        }
-
-        h3 {
-            font-size: 12px;
-            padding: 6px;
-        }
-
-        .pricing-note {
-            font-size: 12px;
-            padding: 12px 14px;
-        }
-
-        #pricingContainer01 img {
-            width: 100px !important;
-            height: 100px !important;
-        }
-
-        .plan .pricing {
-            font-size: 1rem;
-            padding: 0.4em 0.6em;
-        }
-
-        .plan .title {
-            font-size: 1rem;
-        }
-
-        .plan .info {
-            font-size: 0.8rem;
-        }
-
         .usdt-card .usdt-price {
             font-size: 22px;
+        }
+
+        .notice-box {
+            font-size: 13px;
+            padding: 14px 16px;
+            line-height: 1.7;
+        }
+
+        .help-container {
+            padding: 14px 12px;
+        }
+
+        .help-container h3 {
+            font-size: 13px;
+        }
+
+        .help-container .folder-highlight img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .help-container .folder-highlight span {
+            font-size: 13px;
+        }
+
+        .msg-item {
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+
+        .terminal-box {
+            max-width: 100%;
+        }
+
+        .terminal-body {
+            font-size: 12px;
+            padding: 8px 12px;
+            min-height: 35px;
+        }
+
+        .btn-custom {
+            font-size: 12px;
+            padding: 8px 18px;
+            letter-spacing: 1px;
+            width: 100%;
+            max-width: 260px;
+        }
+
+        .btn-center {
+            width: 100%;
+        }
+
+        .btn-center a {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pricing-container {
+            gap: 14px;
+        }
+
+        .usdt-page {
+            padding: 14px;
+        }
+
+        .usdt-page h2 {
+            font-size: 18px;
+        }
+
+        .usdt-grid {
+            gap: 12px;
         }
     }
 
     @media (max-width: 480px) {
-        .box h1 {
+        .header-left h1 {
             font-size: 12px;
         }
 
-        .box img {
+        .header-left img {
             width: 22px;
             height: 22px;
         }
@@ -800,25 +689,119 @@
             padding: 3px 8px;
         }
 
-        .boc {
-            padding: 10px;
-            margin-top: 60px;
+        .header {
+            padding: 6px 10px;
+            min-height: 48px;
+            border-radius: 8px;
         }
 
-        button {
+        .main-content {
+            padding: 10px 8px;
+            border-radius: 8px;
+        }
+
+        .main-title {
+            font-size: 17px;
+            padding: 4px 10px;
+            color: #000;
+        }
+
+        .desc-text {
+            font-size: 12px;
+            padding: 3px 6px;
+        }
+
+        .plan-card .inner {
+            padding: 12px;
+            padding-top: 30px;
+        }
+
+        .plan-card .pricing-badge {
+            font-size: 0.85rem;
+            padding: 0.3em 0.6em;
+        }
+
+        .plan-card .plan-title {
+            font-size: 0.9rem;
+        }
+
+        .plan-card .plan-desc {
+            font-size: 0.75rem;
+        }
+
+        .plan-card .plan-btn {
+            font-size: 0.8rem;
+            padding: 8px;
+        }
+
+        .notice-box {
+            font-size: 12px;
+            padding: 10px 12px;
+            line-height: 1.6;
+        }
+
+        .help-container .folder-highlight img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .help-container .folder-highlight span {
+            font-size: 12px;
+        }
+
+        .msg-item {
             font-size: 11px;
-            padding: 8px 14px;
-            letter-spacing: 1px;
+            padding: 4px 8px;
+        }
+
+        .usdt-card .usdt-price {
+            font-size: 18px;
+        }
+
+        .usdt-card .usdt-label {
+            font-size: 12px;
+        }
+
+        .usdt-card .usdt-btn {
+            font-size: 12px;
+            padding: 6px 16px;
+        }
+
+        .terminal-body {
+            font-size: 11px;
+            padding: 6px 10px;
+            min-height: 30px;
+        }
+
+        .btn-custom {
+            font-size: 10px;
+            padding: 6px 14px;
+            letter-spacing: 0.5px;
+            max-width: 200px;
+        }
+
+        .terminal-toolbar {
+            height: 26px;
+            padding: 0 8px;
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+        }
+
+        .terminal-user-label {
+            font-size: 11px;
+        }
+
+        .terminal-body .cursor {
+            height: 14px;
+            width: 6px;
         }
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
-        .boc {
-            width: 100%;
-            max-width: 950px;
-        }
-
-        .plan {
+        .plan-card {
             min-width: 220px;
             max-width: 280px;
         }
@@ -832,80 +815,85 @@
 
 <body class="fr">
 
-    <div class="box">
-        <img src="par.png">
-        <h1>IcosioM Tools</h1>
-    </div>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header-left">
+            <img src="par.png" alt="logo">
+            <h1>IcosioM Tools</h1>
+        </div>
+        <div class="header-right">
+            <button class="lang-btn" onclick="toggleLanguage('ar')">🇸🇦 عربي</button>
+            <button class="lang-btn" onclick="toggleLanguage('en')">🇬🇧 EN</button>
+            <button class="lang-btn" onclick="toggleLanguage('fr')">🇫🇷 FR</button>
+        </div>
+    </header>
 
-    <!-- أزرار تغيير اللغة -->
-    <div class="lang-buttons">
-        <button class="lang-btn" onclick="toggleLanguage('ar')">🇸🇦 عربي</button>
-        <button class="lang-btn" onclick="toggleLanguage('en')">🇬🇧 EN</button>
-        <button class="lang-btn" onclick="toggleLanguage('fr')">🇫🇷 FR</button>
-    </div>
+    <!-- ===== MAIN ===== -->
+    <main class="main-content">
 
-    <div class="boc">
-
-        <h1>BetaTime</h1>
+        <h1 class="main-title" style="color: #000; width: 920px;">BetaTime</h1>
         <br>
 
-        <!-- ===== FRANÇAIS (par défaut) ===== -->
+        <!-- ===== FRANÇAIS ===== -->
         <div class="lang-fr">
-            <h3>BetaTime automatise la publication de vidéos sur TikTok, sans intervention manuelle après la configuration initiale</h3>
-            <h3>Vous pouvez planifier les heures de publication pour chaque jour de la semaine.</h3>
-            <h3>Il prend en charge la publication automatique de jusqu'à trois vidéos par jour.</h3>
+            <p class="desc-text">BetaTime automatise la publication de vidéos sur TikTok, sans intervention manuelle après la configuration initiale</p>
+            <p class="desc-text">Vous pouvez planifier les heures de publication pour chaque jour de la semaine.</p>
+            <p class="desc-text">Il prend en charge la publication automatique de jusqu'à trois vidéos par jour.</p>
             <br>
-            <h3>Le programme récupère les vidéos directement depuis votre dossier sélectionné, ajoute automatiquement les hashtags,</h3>
-            <h3>et les publie à l'heure prévue—le tout sans publication manuelle.</h3>
+            <p class="desc-text">Le programme récupère les vidéos directement depuis votre dossier sélectionné, ajoute automatiquement les hashtags,</p>
+            <p class="desc-text">et les publie à l'heure prévue—le tout sans publication manuelle.</p>
             <br>
-            <h3>BetaTime utilise un timing intelligent pour augmenter la portée et les vues,</h3>
-            <h3>vous faisant gagner du temps et des efforts dans la gestion du contenu</h3>
-            <h3>tout en maintenant l'activité et la croissance continue de votre compte.</h3>
+            <p class="desc-text">BetaTime utilise un timing intelligent pour augmenter la portée et les vues,</p>
+            <p class="desc-text">vous faisant gagner du temps et des efforts dans la gestion du contenu</p>
+            <p class="desc-text">tout en maintenant l'activité et la croissance continue de votre compte.</p>
         </div>
 
         <!-- ===== ARABE ===== -->
         <div class="lang-ar">
-            <h3>يقوم BetaTime بأتمتة نشر الفيديوهات على TikTok، دون الحاجة إلى تدخل يدوي بعد الإعداد الأولي</h3>
-            <h3>يمكنك جدولة أوقات النشر لكل يوم من أيام الأسبوع.</h3>
-            <h3>يدعم النشر التلقائي لما يصل إلى ثلاثة فيديوهات يومياً.</h3>
+            <p class="desc-text">يقوم BetaTime بأتمتة نشر الفيديوهات على TikTok، دون الحاجة إلى تدخل يدوي بعد الإعداد الأولي</p>
+            <p class="desc-text">يمكنك جدولة أوقات النشر لكل يوم من أيام الأسبوع.</p>
+            <p class="desc-text">يدعم النشر التلقائي لما يصل إلى ثلاثة فيديوهات يومياً.</p>
             <br>
-            <h3>يقوم البرنامج بسحب الفيديوهات مباشرة من المجلد الذي تختاره، ويضيف الهاشتاغات تلقائياً،</h3>
-            <h3>وينشرها في الوقت المحدد—كل ذلك دون الحاجة إلى النشر اليدوي.</h3>
+            <p class="desc-text">يقوم البرنامج بسحب الفيديوهات مباشرة من المجلد الذي تختاره، ويضيف الهاشتاغات تلقائياً،</p>
+            <p class="desc-text">وينشرها في الوقت المحدد—كل ذلك دون الحاجة إلى النشر اليدوي.</p>
             <br>
-            <h3>يستخدم BetaTime توقيتاً ذكياً للمساعدة في زيادة الوصول والمشاهدات</h3>
-            <h3>مما يوفر عليك الوقت والجهد في إدارة المحتوى</h3>
-            <h3>مع الحفاظ على نشاط حسابك ونموه المستمر.</h3>
+            <p class="desc-text">يستخدم BetaTime توقيتاً ذكياً للمساعدة في زيادة الوصول والمشاهدات</p>
+            <p class="desc-text">مما يوفر عليك الوقت والجهد في إدارة المحتوى</p>
+            <p class="desc-text">مع الحفاظ على نشاط حسابك ونموه المستمر.</p>
         </div>
 
         <!-- ===== ENGLISH ===== -->
         <div class="lang-en">
-            <h3>BetaTime automates video posting on TikTok, requiring no manual intervention after the initial setup</h3>
-            <h3>You can schedule posting times for each day of the week.</h3>
-            <h3>It supports the automatic posting of up to three videos per day.</h3>
+            <p class="desc-text">BetaTime automates video posting on TikTok, requiring no manual intervention after the initial setup</p>
+            <p class="desc-text">You can schedule posting times for each day of the week.</p>
+            <p class="desc-text">It supports the automatic posting of up to three videos per day.</p>
             <br>
-            <h3>The program retrieves videos directly from your selected folder, automatically adds hashtags,</h3>
-            <h3>and publishes them at the scheduled time—all without the need for manual posting.</h3>
+            <p class="desc-text">The program retrieves videos directly from your selected folder, automatically adds hashtags,</p>
+            <p class="desc-text">and publishes them at the scheduled time—all without the need for manual posting.</p>
             <br>
-            <h3>BetaTime utilizes smart timing to help increase reach and views,</h3>
-            <h3>saving you time and effort in content management</h3>
-            <h3>while maintaining your account's activity and continuous growth.</h3>
+            <p class="desc-text">BetaTime utilizes smart timing to help increase reach and views,</p>
+            <p class="desc-text">saving you time and effort in content management</p>
+            <p class="desc-text">while maintaining your account's activity and continuous growth.</p>
         </div>
 
         <br>
 
-        <a href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20product" target="_blank" style="text-decoration: none; align-self: center;">
-            <button onclick="togglePricing(event)">
-                <span class="lang-fr">Demander</span>
-                <span class="lang-ar">طلب</span>
-                <span class="lang-en">Request</span>
-            </button>
-        </a>
-        <br>
+        <!-- ===== REQUEST BUTTON ===== -->
+        <div class="btn-center">
+            <a href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20product" target="_blank">
+                <button class="btn-custom" onclick="togglePricing(event)">
+                    <span class="lang-fr">Demander</span>
+                    <span class="lang-ar">طلب</span>
+                    <span class="lang-en">Request</span>
+                </button>
+            </a>
+        </div>
 
+        <!-- ===== PRICING ===== -->
         <div class="pricing-container" id="pricingContainer">
 
-            <!-- ===== التنبيه ===== -->
-            <div class="pricing-note">
+            <!-- ===== NOTICE ===== -->
+            <div class="notice-box">
                 <div class="lang-fr">
                     ⚠️ <span class="highlight">Avis important:</span><br>
                     BetaTime est conçu pour fonctionner avec l'interface et les composants actuels de TikTok. Le programme utilise les éléments et boutons existants sur le site pour effectuer les opérations de connexion, de téléchargement de vidéos et de publication.<br><br>
@@ -926,27 +914,24 @@
                 </div>
             </div>
 
-            <!-- ===== بطاقة 1 - فقط DZD ===== -->
-            <div class="plan">
+            <!-- ===== CARD 1 ===== -->
+            <div class="plan-card">
                 <div class="inner">
-                    <span class="pricing">
-                        <span>
-                            3000DA <small>/ m</small>
-                        </span>
+                    <span class="pricing-badge">
+                        3000DA <small>/ m</small>
                     </span>
-                    <br>
-                    <p class="title">
+                    <p class="plan-title">
                         <span class="lang-fr">Deuxième option</span>
                         <span class="lang-ar">الخيار الثاني</span>
                         <span class="lang-en">Second option</span>
                     </p>
-                    <p class="info">
+                    <p class="plan-desc">
                         <span class="lang-fr">Le programme BetaTime publie automatiquement le contenu selon vos horaires prédéfinis ; il vous permet de créer un planning hebdomadaire, d'ajouter des hashtags et de récupérer automatiquement les vidéos d'un dossier pour les publier sans aucune intervention.</span>
                         <span class="lang-ar">يقوم برنامج BetaTime بنشر المحتوى تلقائياً وفقاً للأوقات التي تحددها مسبقاً؛ يتيح لك إنشاء جدول أسبوعي، وإضافة هاشتاغات، وسحب الفيديوهات تلقائياً من مجلد لنشرها دون أي تدخل منك.</span>
                         <span class="lang-en">The BetaTime program automatically publishes content according to your pre-set times; it allows you to create a weekly schedule, add hashtags, and automatically retrieve videos from a folder to publish them without any intervention on your part.</span>
                     </p>
-                    <div class="action">
-                        <a class="button" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20Professional%20plan">
+                    <div class="plan-action">
+                        <a class="plan-btn" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20Professional%20plan">
                             <span class="lang-fr">Choisir le forfait</span>
                             <span class="lang-ar">اختر الخطة</span>
                             <span class="lang-en">Choose plan</span>
@@ -955,27 +940,24 @@
                 </div>
             </div>
 
-            <!-- ===== بطاقة 2 - فقط DZD ===== -->
-            <div class="plan">
+            <!-- ===== CARD 2 ===== -->
+            <div class="plan-card">
                 <div class="inner">
-                    <span class="pricing">
-                        <span>
-                            2500DA <small>/ m</small>
-                        </span>
+                    <span class="pricing-badge">
+                        2500DA <small>/ m</small>
                     </span>
-                    <br>
-                    <p class="title">
+                    <p class="plan-title">
                         <span class="lang-fr">Première option</span>
                         <span class="lang-ar">الخيار الأول</span>
                         <span class="lang-en">First option</span>
                     </p>
-                    <p class="info">
+                    <p class="plan-desc">
                         <span class="lang-fr">Un outil de publication manuel qui publie les vidéos instantanément en un seul clic, sans avoir à définir des heures spécifiques ou à créer un planning. Idéal pour ceux qui préfèrent un contrôle précis sur le moment de publication de leur contenu.</span>
                         <span class="lang-ar">أداة نشر يدوية تنشر الفيديوهات فوراً بنقرة زر واحدة، دون الحاجة إلى تحديد أوقات محددة أو إنشاء جدول نشر. مثالية لمن يفضلون التحكم الدقيق في وقت نشر محتواهم.</span>
                         <span class="lang-en">A manual publishing tool that posts videos instantly with the click of a single button, eliminating the need to set specific times or create a publishing schedule. It is ideal for those who prefer to control exactly when their content is published.</span>
                     </p>
-                    <div class="action">
-                        <a class="button" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20Enterprise%20plan">
+                    <div class="plan-action">
+                        <a class="plan-btn" href="https://wa.me/+213559368507?text=Hello%2C%20I%20want%20to%20order%20the%20Enterprise%20plan">
                             <span class="lang-fr">Choisir le forfait</span>
                             <span class="lang-ar">اختر الخطة</span>
                             <span class="lang-en">Choose plan</span>
@@ -984,16 +966,16 @@
                 </div>
             </div>
 
-            <!-- ===== زر USDT ===== -->
+            <!-- ===== USDT BUTTON ===== -->
             <div style="width: 100%; text-align: center; margin: 10px 0;">
-                <button onclick="toggleUSDT()">
+                <button class="btn-custom" onclick="toggleUSDT()">
                     <span class="lang-fr">💰 Voir les prix en USDT</span>
                     <span class="lang-ar">💰 عرض الأسعار بـ USDT</span>
                     <span class="lang-en">💰 View Prices in USDT</span>
                 </button>
             </div>
 
-            <!-- ===== صفحة USDT (فقط USDT بدون DZD) ===== -->
+            <!-- ===== USDT PAGE ===== -->
             <div class="usdt-page" id="usdtPage">
                 <h2>
                     <span class="lang-fr">💲 Prix en USDT</span>
@@ -1034,40 +1016,33 @@
         </div>
 
         <!-- ===== TERMINAL ===== -->
-        <div class="container">
-            <div class="terminal_toolbar">
-                <div class="butt">
-                    <button class="btn btn-color"></button>
-                    <button class="btn"></button>
-                    <button class="btn"></button>
+        <div class="terminal-box">
+            <div class="terminal-toolbar">
+                <div class="terminal-dots">
+                    <button class="terminal-dot red"></button>
+                    <button class="terminal-dot yellow"></button>
+                    <button class="terminal-dot green"></button>
                 </div>
-                <p class="user">BetaTime</p>
-                <div class="add_tab">
-                    +
-                </div>
+                <span class="terminal-user-label">BetaTime</span>
+                <span style="color:#666; font-size:13px;">+</span>
             </div>
-            <div class="terminal_body">
-                <div class="terminal_promt">
-                    <span class="terminal_user">TikTok Upload VIDEOE</span>
-                    <span class="terminal_location"></span>
-                    <span class="terminal_bling"></span>
-                    <span class="terminal_cursor"></span>
-                </div>
+            <div class="terminal-body">
+                <span class="prompt">TikTok Upload VIDEOE</span>
+                <span class="cursor"></span>
             </div>
         </div>
-        <br>
-        <br>
 
-        <!-- ===== زر المساعدة ===== -->
-        <button onclick="togglePricing1(event)">
-            <span class="lang-fr">Aide BetaTime</span>
-            <span class="lang-ar">مساعدة BetaTime</span>
-            <span class="lang-en">BetaTime help</span>
-        </button>
-        <br>
+        <!-- ===== HELP BUTTON ===== -->
+        <div class="btn-center">
+            <button class="btn-custom" onclick="toggleHelp(event)">
+                <span class="lang-fr">Aide BetaTime</span>
+                <span class="lang-ar">مساعدة BetaTime</span>
+                <span class="lang-en">BetaTime help</span>
+            </button>
+        </div>
 
-        <!-- ===== HELP CONTAINER ===== -->
-        <div class="pricing-container" id="pricingContainer01">
+        <!-- ===== HELP ===== -->
+        <div class="help-container" id="helpContainer">
 
             <div class="lang-fr">
                 <h3>Si vous rencontrez des problèmes lors de l'utilisation de BetaTime, ou si le logiciel ne fonctionne pas comme prévu,</h3>
@@ -1090,7 +1065,7 @@
             <div class="folder-highlight">
                 <img src="folder.png" alt="folder">
                 <span>
-                    <strong>program.exe</strong> — 
+                    <strong>folder.png</strong> — 
                     <span class="lang-fr">Sélectionnez votre dossier vidéo</span>
                     <span class="lang-ar">اختر مجلد الفيديوهات</span>
                     <span class="lang-en">Select your video folder</span>
@@ -1202,7 +1177,7 @@
 
         </div>
 
-    </div>
+    </main>
 
     <script>
         function togglePricing(event) {
@@ -1211,9 +1186,9 @@
             container.classList.toggle('show');
         }
 
-        function togglePricing1(event) {
+        function toggleHelp(event) {
             if (event) event.preventDefault();
-            var container = document.getElementById('pricingContainer01');
+            var container = document.getElementById('helpContainer');
             container.classList.toggle('show');
         }
 
